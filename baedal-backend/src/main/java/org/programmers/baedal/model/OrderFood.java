@@ -3,23 +3,24 @@ package org.programmers.baedal.model;
 import java.util.UUID;
 
 public class OrderFood {
-    private final UUID orderId;
-    private final long foodId;
+
+    private final UUID storeId;
+    private final UUID foodId;
     private long price;
     private long quantity;
 
-    public OrderFood(UUID orderId, long foodId, long price, long quantity) {
-        this.orderId = orderId;
+    public OrderFood(UUID storeId, UUID foodId, long price, long quantity) {
+        this.storeId = storeId;
         this.foodId = foodId;
         this.price = price;
         this.quantity = quantity;
     }
 
-    public UUID getOrderId() {
-        return orderId;
+    public UUID getStoreId() {
+        return storeId;
     }
 
-    public long getFoodId() {
+    public UUID getFoodId() {
         return foodId;
     }
 

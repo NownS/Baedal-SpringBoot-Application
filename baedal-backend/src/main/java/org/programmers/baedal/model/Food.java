@@ -1,31 +1,36 @@
 package org.programmers.baedal.model;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class Food {
-    private final long id;
-    private final long storeId;
+    private final UUID foodId;
+    private final UUID storeId;
     private final String name;
     private final long price;
     private final String description;
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Food(long id, long storeId, String name, long price, String description) {
-        this.id = id;
+    public Food(UUID foodId, UUID storeId, String name, long price, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.foodId = foodId;
         this.storeId = storeId;
         this.name = name;
         this.price = price;
         this.description = description;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
-    public long getId() {
-        return id;
+    public Food(UUID foodId, UUID storeId, String name, long price, String description) {
+        this(foodId, storeId, name, price, description, LocalDateTime.now(), LocalDateTime.now());
     }
 
-    public long getStoreId() {
+    public UUID getFoodId() {
+        return foodId;
+    }
+
+    public UUID getStoreId() {
         return storeId;
     }
 
@@ -39,5 +44,13 @@ public class Food {
 
     public String getDescription() {
         return description;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 }

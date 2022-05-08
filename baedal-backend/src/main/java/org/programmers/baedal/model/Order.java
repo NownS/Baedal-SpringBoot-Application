@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class Order {
-    private final UUID uuid;
+    private final UUID orderId;
     private final String name;
     private final Email email;
     private final String address;
@@ -14,8 +14,8 @@ public class Order {
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Order(UUID uuid, String name, Email email, String address, OrderStatus orderStatus, List<OrderFood> orderFoods) {
-        this.uuid = uuid;
+    public Order(UUID orderId, String name, Email email, String address, OrderStatus orderStatus, List<OrderFood> orderFoods) {
+        this.orderId = orderId;
         this.name = name;
         this.email = email;
         this.address = address;
@@ -25,12 +25,12 @@ public class Order {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public Order(UUID uuid, String name, Email email, String address, List<OrderFood> orderFoods) {
-        this(uuid, name, email, address, OrderStatus.ORDERED, orderFoods);
+    public Order(UUID orderId, String name, Email email, String address, List<OrderFood> orderFoods) {
+        this(orderId, name, email, address, OrderStatus.ORDERED, orderFoods);
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getOrderId() {
+        return orderId;
     }
 
     public String getName() {
