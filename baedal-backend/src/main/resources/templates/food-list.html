@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>baedal</title>
+</head>
+<body>
+<h1>
+    Baedal Service Mgnt
+</h1>
+<h2>
+    <div th:text="${store.name}"></div>
+</h2>
+    <a th:href="@{/{id}/new-food(id=${store.storeId})}" type="button">Add Food</a>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">CreatedAt</th>
+        <th scope="col">UpdatedAt</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="food: ${foods}">
+        <td th:text="${food.foodId}"></td>
+        <td th:text="${food.name}"></td>
+        <td th:text="${food.price}"></td>
+        <td th:text="${food.description}"></td>
+        <td th:text="${food.createdAt}"></td>
+        <td th:text="${food.updatedAt}"></td>
+        <td><a th:href="@{/{id1}/{id2}/delete(id1=${store.storeId}, id2=${food.foodId})}">del</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

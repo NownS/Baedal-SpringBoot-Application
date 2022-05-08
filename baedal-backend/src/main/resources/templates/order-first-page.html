@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>baedal</title>
+</head>
+<body>
+<h1>
+    Baedal Service
+</h1>
+<h2>
+    Stores
+</h2>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Opened</th>
+        <th scope="col">Category</th>
+        <th scope="col">Address</th>
+        <th scope="col">DeliveryFee</th>
+        <th scope="col">Link</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="store: ${stores}">
+        <td th:text="${store.name}"></td>
+        <td th:text="${store.isOpened}"></td>
+        <td th:text="${store.category}"></td>
+        <td th:text="${store.address}"></td>
+        <td th:text="${store.deliveryFee}"></td>
+        <td><div th:if="${store.isOpened}"><a th:href="@{/orders/{id}(id=${store.storeId})}">Go</a></div></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

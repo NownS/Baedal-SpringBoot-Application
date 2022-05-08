@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>baedal</title>
+</head>
+<body>
+<h1>
+    Baedal Service
+</h1>
+<h2>
+    <div th:text="${store.name}"></div>
+</h2>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Order</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="food: ${foods}">
+        <td th:text="${food.name}"></td>
+        <td th:text="${food.price}"></td>
+        <td th:text="${food.description}"></td>
+        <td><a th:href="@{/orders/{id1}/{id2}(id1=${store.storeId}, id2=${food.foodId})}">Go</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

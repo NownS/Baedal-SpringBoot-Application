@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>baedal</title>
+</head>
+<body>
+<h1>
+    Baedal Service Mgnt
+</h1>
+<h2>
+    Stores
+</h2>
+<a th:href="@{/new-store}" type="button">Add Store</a>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Opened</th>
+        <th scope="col">Category</th>
+        <th scope="col">Address</th>
+        <th scope="col">DeliveryFee</th>
+        <th scope="col">CreatedAt</th>
+        <th scope="col">UpdatedAt</th>
+        <th scope="col">Link</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="store: ${stores}">
+        <td th:text="${store.storeId}"></td>
+        <td th:text="${store.name}"></td>
+        <td th:text="${store.isOpened}"></td>
+        <td th:text="${store.category}"></td>
+        <td th:text="${store.address}"></td>
+        <td th:text="${store.deliveryFee}"></td>
+        <td th:text="${store.createdAt}"></td>
+        <td th:text="${store.updatedAt}"></td>
+        <td><a th:href="@{/{id}/list(id=${store.storeId})}">Go</a></td>
+        <td><a th:href="@{/{id}/delete(id=${store.storeId})}">del</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

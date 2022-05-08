@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>baedal</title>
+</head>
+<body>
+<h1>
+  Baedal Service
+</h1>
+<h3>Name</h3>
+<div th:text="${order.name}"></div>
+<h3>Email</h3>
+<div th:text="${order.email.getAddress()}"></div>
+<h3>Address</h3>
+<div th:text="${order.address}"></div>
+<h3>Status</h3>
+<div th:text="${order.orderStatus}"></div>
+<div th:each="orderFood: ${orderFoods}">
+    <h3>Food_id</h3>
+    <div th:text="${orderFood.foodId}"></div>
+    <h3>Price</h3>
+    <div th:text="${orderFood.price}"></div>
+    <h3>Quantity</h3>
+    <div th:text="${orderFood.quantity}"></div>
+</div>
+
+<a href="/orders">Back</a>
+</body>
+</html>
